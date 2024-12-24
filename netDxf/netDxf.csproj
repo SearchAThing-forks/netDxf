@@ -4,7 +4,7 @@
     <TargetFrameworks>net472;netstandard2.0;netstandard2.1;netcoreapp3.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>    
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageId>netDxf-devel0</PackageId>
-		<PackageVersion>3.2.0</PackageVersion>
+		<PackageVersion>3.3.0</PackageVersion>
 		<Title>netDxf-devel0</Title>
 		<Description></Description>
 		<Authors>Lorenzo Delana</Authors>
