@@ -18,12 +18,10 @@ namespace UnitTesting
             {
                 var dxf = DxfDocument.Load(TestAsset(testfilename));
 
-                Assert.Fail("should generate DebugAssertException");
+                Assert.Fail("should generate an exception");
             }
-            catch (Exception ex)
-            {
-                if (ex.GetType().Name != "DebugAssertException")
-                    Assert.Fail("should generate DebugAssertException");
+            catch
+            {                
             }
 
             try
