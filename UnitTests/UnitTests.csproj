@@ -1,9 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TargetFrameworks>net9.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TargetFrameworks>net472;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
+  </PropertyGroup>
+
   <PropertyGroup>
-    <TargetFrameworks>net472;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>    
-    
-    <LangVersion>12</LangVersion>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
@@ -20,13 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Assets\ellipse.dxf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\TestOrientedDim_1.dxf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Assets\TestOrientedDim_2.dxf">
+    <None Update="Assets\*.dxf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

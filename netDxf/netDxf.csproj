@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net472;netstandard2.0;netstandard2.1;netcoreapp3.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>    
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<PackageId>netDxf-devel0</PackageId>
-		<PackageVersion>3.3.0</PackageVersion>
-		<Title>netDxf-devel0</Title>
-		<Description></Description>
-		<Authors>Lorenzo Delana</Authors>
-		<PackageTags>net dxf</PackageTags>
-		<PackageProjectUrl>https://github.com/SearchAThing-forks/netDxf</PackageProjectUrl>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<SignAssembly>True</SignAssembly>
-		<AssemblyOriginatorKeyFile>netDxf.snk</AssemblyOriginatorKeyFile>
+    <PackageId>netDxf-devel0</PackageId>
+    <PackageVersion>3.3.0</PackageVersion>
+    <Title>netDxf-devel0</Title>
+    <Description></Description>
+    <Authors>Lorenzo Delana</Authors>
+    <PackageTags>net dxf</PackageTags>
+    <PackageProjectUrl>https://github.com/SearchAThing-forks/netDxf</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>netDxf.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TargetFrameworks>net9.0</TargetFrameworks>
     <DocumentationFile>netDxf.xml</DocumentationFile>
     <NoWarn>1701;1702</NoWarn>
     <OutputPath></OutputPath>
@@ -23,6 +23,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TargetFrameworks>net472;netstandard2.0;netstandard2.1;netcoreapp3.1;net6.0;net7.0;net8.0;net9.0</TargetFrameworks>
     <DocumentationFile>netDxf.xml</DocumentationFile>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
