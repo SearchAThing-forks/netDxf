@@ -54,7 +54,7 @@ namespace netDxf.IO
             StringBuilder sb = new StringBuilder(18);
             for (int i = 0; i < 18; i++)
             {
-                sb.Append((char) sentinel[i]);
+                sb.Append((char)sentinel[i]);
             }
 
             if (sb.ToString() != "AutoCAD Binary DXF")

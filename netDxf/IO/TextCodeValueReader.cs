@@ -98,47 +98,47 @@ namespace netDxf.IO
 
         public byte ReadByte()
         {
-            return (byte) this.value;
+            return (byte)this.value;
         }
 
         public byte[] ReadBytes()
         {
-            return (byte[]) this.value;
+            return (byte[])this.value;
         }
 
         public short ReadShort()
         {
-            return (short) this.value;
+            return (short)this.value;
         }
 
         public int ReadInt()
         {
-            return (int) this.value;
+            return (int)this.value;
         }
 
         public long ReadLong()
         {
-            return (long) this.value;
+            return (long)this.value;
         }
 
         public bool ReadBool()
         {
-            return (bool) this.value;
+            return (bool)this.value;
         }
 
         public double ReadDouble()
         {
-            return (double) this.value;
+            return (double)this.value;
         }
 
         public string ReadString()
         {
-            return (string) this.value;
+            return (string)this.value;
         }
 
         public string ReadHex()
         {
-            return (string) this.value;
+            return (string)this.value;
         }
 
         public override string ToString()
