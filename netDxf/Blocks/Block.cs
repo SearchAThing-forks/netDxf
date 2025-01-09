@@ -519,12 +519,13 @@ namespace netDxf.Blocks
         /// <param name="file">DXF file name.</param>
         /// <param name="name">Name of the new block.</param>
         /// <param name="supportFolders">List of the document support folders.</param>
+        /// <param name="options">Permissive options.</param>
         /// <returns>The block build from the DXF file content. It will return null if the file has not been able to load.</returns>
         /// <remarks>Only the entities contained in ModelSpace will make part of the block.</remarks>
-        public static Block Load(string file, string name, IEnumerable<string> supportFolders)
+        public static Block Load(string file, string name, IEnumerable<string> supportFolders, DxfLoaderOptions options = DxfLoaderOptions.None)
         {
 #if DEBUG
-            DxfDocument dwg = DxfDocument.Load(file, supportFolders);
+            DxfDocument dwg = DxfDocument.Load(file, supportFolders, options);
 #else
             DxfDocument dwg;
             try 

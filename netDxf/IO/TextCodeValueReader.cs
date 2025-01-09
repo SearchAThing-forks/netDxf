@@ -40,17 +40,19 @@ namespace netDxf.IO
         private short code;
         private object value;
         private long currentPosition;
+        private DxfLoaderOptions options;
 
         #endregion
 
         #region constructors
 
-        public TextCodeValueReader(TextReader reader)
+        public TextCodeValueReader(TextReader reader, DxfLoaderOptions options = DxfLoaderOptions.None)
         {
             this.reader = reader;
             this.code = 0;
             this.value = null;
             this.currentPosition = 0;
+            this.options = options;
         }
 
         #endregion
@@ -70,6 +72,11 @@ namespace netDxf.IO
         public long CurrentPosition
         {
             get { return this.currentPosition; }
+        }
+
+        public DxfLoaderOptions Options
+        {
+            get { return this.options; }
         }
 
         #endregion
@@ -242,6 +249,15 @@ namespace netDxf.IO
             }
             if (this.code >= 330 && this.code <= 369) // string representing hex object IDs
             {
+                if (options != DxfLoaderOptions.None)
+                {
+                    if (options.HasFlag(DxfLoaderOptions.ChunkValueStringStandardAsZero) && valueString == "standard")
+                        return this.ReadHex("0");
+
+                    if (options.HasFlag(DxfLoaderOptions.ChunkValueEmptyStringAsZero) && valueString == "")
+                        return this.ReadHex("0");
+                }
+
                 return this.ReadHex(valueString);
             }
             if (this.code >= 370 && this.code <= 379) // 16-bit integer value

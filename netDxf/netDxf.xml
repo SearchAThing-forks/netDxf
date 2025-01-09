@@ -688,13 +688,14 @@
             <returns>The block build from the DXF file content. It will return null if the file has not been able to load.</returns>
             <remarks>Only the entities contained in ModelSpace will make part of the block.</remarks>
         </member>
-        <member name="M:netDxf.Blocks.Block.Load(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:netDxf.Blocks.Block.Load(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},netDxf.DxfLoaderOptions)">
             <summary>
             Creates a block from an external DXF file.
             </summary>
             <param name="file">DXF file name.</param>
             <param name="name">Name of the new block.</param>
             <param name="supportFolders">List of the document support folders.</param>
+            <param name="options">Permissive options.</param>
             <returns>The block build from the DXF file content. It will return null if the file has not been able to load.</returns>
             <remarks>Only the entities contained in ModelSpace will make part of the block.</remarks>
         </member>
@@ -3041,7 +3042,7 @@
             Initializes a new instance of the <c>DxfDocument</c> class.
             </summary>
             <param name="drawingVariables"><see cref="T:netDxf.Header.HeaderVariables">Drawing variables</see> of the document.</param>
-            <param name="supportFolders">List of the document support folders.</param>
+            <param name="supportFolders">List of the document support folders.</param>        
         </member>
         <member name="M:netDxf.DxfDocument.#ctor(netDxf.Header.HeaderVariables,System.Boolean,netDxf.Collections.SupportFolders)">
             <summary>
@@ -3049,7 +3050,7 @@
             </summary>
             <param name="drawingVariables"><see cref="T:netDxf.Header.HeaderVariables">Drawing variables</see> of the document.</param>
             <param name="createDefaultObjects">Check if the default objects need to be created.</param>
-            <param name="supportFolders">List of the document support folders.</param>
+            <param name="supportFolders">List of the document support folders.</param>        
         </member>
         <member name="P:netDxf.DxfDocument.NumHandles">
             <summary>
@@ -3202,11 +3203,12 @@
             Gets the <see cref="T:netDxf.Collections.DrawingEntities">entities</see> shortcuts.
             </summary>
         </member>
-        <member name="M:netDxf.DxfDocument.Load(System.String)">
+        <member name="M:netDxf.DxfDocument.Load(System.String,netDxf.DxfLoaderOptions)">
             <summary>
             Loads a DXF file.
             </summary>
             <param name="file">File name.</param>
+            <param name="options">Permissive options.</param>
             <returns>Returns a DxfDocument. It will return null if the file has not been able to load.</returns>
             <exception cref="T:netDxf.IO.DxfVersionNotSupportedException"></exception>
             <remarks>
@@ -3215,12 +3217,13 @@
             On Debug mode it will raise any exception that might occur during the whole process.
             </remarks>
         </member>
-        <member name="M:netDxf.DxfDocument.Load(System.String,System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:netDxf.DxfDocument.Load(System.String,System.Collections.Generic.IEnumerable{System.String},netDxf.DxfLoaderOptions)">
             <summary>
             Loads a DXF file.
             </summary>
             <param name="file">File name.</param>
             <param name="supportFolders">List of the document support folders.</param>
+            <param name="options">Permissive options.</param>
             <returns>Returns a DxfDocument. It will return null if the file has not been able to load.</returns>
             <exception cref="T:netDxf.IO.DxfVersionNotSupportedException"></exception>
             <remarks>
@@ -3229,11 +3232,12 @@
             On Debug mode it will raise any exception that might occur during the whole process.
             </remarks>
         </member>
-        <member name="M:netDxf.DxfDocument.Load(System.IO.Stream)">
+        <member name="M:netDxf.DxfDocument.Load(System.IO.Stream,netDxf.DxfLoaderOptions)">
             <summary>
             Loads a DXF file.
             </summary>
             <param name="stream">Stream.</param>
+            <param name="options">Permissive options.</param>
             <returns>Returns a DxfDocument. It will return null if the file has not been able to load.</returns>
             <exception cref="T:netDxf.IO.DxfVersionNotSupportedException"></exception>
             <remarks>
@@ -3242,12 +3246,13 @@
             The caller will be responsible of closing the stream.
             </remarks>
         </member>
-        <member name="M:netDxf.DxfDocument.Load(System.IO.Stream,System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:netDxf.DxfDocument.Load(System.IO.Stream,System.Collections.Generic.IEnumerable{System.String},netDxf.DxfLoaderOptions)">
             <summary>
             Loads a DXF file.
             </summary>
             <param name="stream">Stream.</param>
             <param name="supportFolders">List of the document support folders.</param>
+            <param name="options">Permissive options.</param>
             <returns>Returns a DxfDocument. It will return null if the file has not been able to load.</returns>
             <exception cref="T:netDxf.IO.DxfVersionNotSupportedException"></exception>
             <remarks>
@@ -3346,6 +3351,33 @@
             </summary>
             <param name="objectHandle">DxfObject handle.</param>
             <returns>The DxfObject that has the provided handle, null otherwise.</returns>
+        </member>
+        <member name="T:netDxf.DxfLoaderOptions">
+            <summary>
+            Options for some permissive flags (workarounds).
+            </summary>
+        </member>
+        <member name="F:netDxf.DxfLoaderOptions.None">
+            <summary>
+            No options enabled.
+            </summary>
+        </member>
+        <member name="F:netDxf.DxfLoaderOptions.All">
+            <summary>
+            All options enabled.
+            </summary>
+        </member>
+        <member name="F:netDxf.DxfLoaderOptions.ChunkValueStringStandardAsZero">
+            <summary>
+            Loader with chunk value "standard" ( fallback as "0" ).
+            Applies if code in range [330,369].
+            </summary>
+        </member>
+        <member name="F:netDxf.DxfLoaderOptions.ChunkValueEmptyStringAsZero">
+            <summary>
+            Loader with chunk value "" ( fallback as "0" ).
+            Applies if code in range [330,369].
+            </summary>
         </member>
         <member name="T:netDxf.DxfObject">
             <summary>
@@ -12482,12 +12514,18 @@
             Low level DXF reader
             </summary>
         </member>
+        <member name="M:netDxf.IO.DxfReader.#ctor(netDxf.DxfLoaderOptions)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="options">Permissive options.</param>
+        </member>
         <member name="M:netDxf.IO.DxfReader.Read(System.IO.Stream,netDxf.Collections.SupportFolders)">
             <summary>
             Reads the whole stream.
             </summary>
             <param name="stream">Stream.</param>
-            <param name="supportFolders">List of the document support folders.</param>
+            <param name="supportFolders">List of the document support folders.</param>        
         </member>
         <member name="T:netDxf.IO.DxfVersionNotSupportedException">
             <summary>
@@ -12616,6 +12654,11 @@
         <member name="P:netDxf.IO.ICodeValueReader.CurrentPosition">
             <summary>
             Gets the line that has been read.
+            </summary>
+        </member>
+        <member name="P:netDxf.IO.ICodeValueReader.Options">
+            <summary>
+            Gets permissive options.
             </summary>
         </member>
         <member name="P:netDxf.IO.ICodeValueWriter.Code">

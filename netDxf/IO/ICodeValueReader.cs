@@ -42,6 +42,11 @@ namespace netDxf.IO
         /// </summary>
         long CurrentPosition { get; }
 
+        /// <summary>
+        /// Gets permissive options.
+        /// </summary>
+        DxfLoaderOptions Options { get; }
+
         void Next();
         byte ReadByte();
         byte[] ReadBytes();

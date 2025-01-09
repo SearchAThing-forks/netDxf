@@ -8,6 +8,8 @@ netDxf Copyright(C) 2009-2023 Daniel Carvajal, licensed under MIT License
 - [Compiling](#compiling)
 - [Development Status](#development-status)
 - [Supported DXF entities](#supported-dxf-entities)
+- [Dev notes](#dev-notes)
+	- [LoaderOptions](#loaderoptions)
 
 ---
 
@@ -98,3 +100,15 @@ All DXF objects may contain extended data information.
 AutoCad Table entities will be imported as Inserts (block references).
 Both simple and complex line types are supported.
 The library will never be able to read some entities like REGIONs, SURFACEs, and 3DSOLIDs, since they depend on undocumented proprietary data.
+
+## Dev notes
+
+### LoaderOptions
+
+Added optional DxfLoaderOptions flag to the DxfDocument.Load in order to allow more permissive in load some non compliant dxf file.
+For example the option `ChunkValueStringStandardAsZero` documented as follow:
+
+> Loader with chunk value "standard" ( fallback as "0" ).
+> Applies if code in range [330,369].
+
+That mean the parser consider the "standard" as if it was "0" string allowing a reasonable fallback value and continue parsing.

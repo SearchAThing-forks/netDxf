@@ -51,7 +51,19 @@ namespace netDxf.IO
     /// </summary>
     internal sealed class DxfReader
     {
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="options">Permissive options.</param>
+        internal DxfReader(DxfLoaderOptions options)// = DxfDocumentOptions.None)
+        {
+            this.options = options;
+        }
+
         #region private fields
+
+        private DxfLoaderOptions options;
 
         private bool isBinary;
 
@@ -148,9 +160,9 @@ namespace netDxf.IO
         /// Reads the whole stream.
         /// </summary>
         /// <param name="stream">Stream.</param>
-        /// <param name="supportFolders">List of the document support folders.</param>
+        /// <param name="supportFolders">List of the document support folders.</param>        
         public DxfDocument Read(Stream stream, SupportFolders supportFolders)
-        {
+        {            
             if (stream == null)
             {
                 throw new ArgumentNullException(nameof(stream));
@@ -220,11 +232,11 @@ namespace netDxf.IO
 
             if (this.isBinary)
             {
-                this.chunk = new BinaryCodeValueReader(new BinaryReader(stream), encoding);
+                this.chunk = new BinaryCodeValueReader(new BinaryReader(stream), encoding, options);
             }
             else
             {
-                this.chunk = new TextCodeValueReader(new StreamReader(stream, encoding, true));
+                this.chunk = new TextCodeValueReader(new StreamReader(stream, encoding, true), options);
             }
 
             
