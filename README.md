@@ -51,6 +51,7 @@ Well, at the moment they are just tests for the work in progress.
 ## Unit Tests
 Are contained in the source code and must be executed with Release configuration.
 To run automated unit tests `dotnet test -c Release`.
+Framework can be specified ie. `dotnet test -c Release --framework net9.0`.
 
 ## Dependencies and distribution 
 Multitarget project, predefined frameworks for Net Framework 4.7.2, NET 6.0, NET 7.0, and NET 8.0.
