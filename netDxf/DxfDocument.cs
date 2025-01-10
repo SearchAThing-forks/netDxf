@@ -487,7 +487,7 @@ namespace netDxf
         /// The Load method will still raise an exception if they are unable to create the FileStream.<br />
         /// On Debug mode it will raise any exception that might occur during the whole process.
         /// </remarks>
-        public static DxfDocument Load(string file, DxfLoaderOptions options = DxfLoaderOptions.None)
+        public static DxfDocument Load(string file, DxfLoaderOptions options = DxfLoaderOptions.All)
         {
             return Load(file, new List<string>(), options);
         }
@@ -505,7 +505,7 @@ namespace netDxf
         /// The Load method will still raise an exception if they are unable to create the FileStream.<br />
         /// On Debug mode it will raise any exception that might occur during the whole process.
         /// </remarks>
-        public static DxfDocument Load(string file, IEnumerable<string> supportFolders, DxfLoaderOptions options = DxfLoaderOptions.None)
+        public static DxfDocument Load(string file, IEnumerable<string> supportFolders, DxfLoaderOptions options = DxfLoaderOptions.All)
         {
             Stream stream = File.Open(file, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
@@ -553,7 +553,7 @@ namespace netDxf
         /// On Debug mode it will raise any exception that might occur during the whole process.<br />
         /// The caller will be responsible of closing the stream.
         /// </remarks>
-        public static DxfDocument Load(Stream stream, DxfLoaderOptions options = DxfLoaderOptions.None)
+        public static DxfDocument Load(Stream stream, DxfLoaderOptions options = DxfLoaderOptions.All)
         {
             return Load(stream, new List<string>(), options);
         }
@@ -571,7 +571,7 @@ namespace netDxf
         /// On Debug mode it will raise any exception that might occur during the whole process.<br />
         /// The caller will be responsible of closing the stream.
         /// </remarks>
-        public static DxfDocument Load(Stream stream, IEnumerable<string> supportFolders, DxfLoaderOptions options = DxfLoaderOptions.None)
+        public static DxfDocument Load(Stream stream, IEnumerable<string> supportFolders, DxfLoaderOptions options = DxfLoaderOptions.All)
         {
             DxfReader dxfReader = new DxfReader(options);
             

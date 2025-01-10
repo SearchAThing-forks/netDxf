@@ -16,7 +16,7 @@ namespace UnitTesting
             
             try
             {
-                var dxf = DxfDocument.Load(TestAsset(testfilename));
+                var dxf = DxfDocument.Load(TestAsset(testfilename), DxfLoaderOptions.None);
 
                 Assert.Fail("should generate an exception");
             }
@@ -26,10 +26,7 @@ namespace UnitTesting
 
             try
             {
-                var dxf = DxfDocument.Load(TestAsset(testfilename),
-                    DxfLoaderOptions.ChunkValueEmptyStringAsZero |
-                    DxfLoaderOptions.ChunkValueStringStandardAsZero
-                    );
+                var dxf = DxfDocument.Load(TestAsset(testfilename));
             }
             catch
             {

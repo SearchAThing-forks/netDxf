@@ -46,7 +46,7 @@ namespace netDxf.IO
 
         #region constructors
 
-        public TextCodeValueReader(TextReader reader, DxfLoaderOptions options = DxfLoaderOptions.None)
+        public TextCodeValueReader(TextReader reader, DxfLoaderOptions options = DxfLoaderOptions.All)
         {
             this.reader = reader;
             this.code = 0;
@@ -249,7 +249,7 @@ namespace netDxf.IO
             }
             if (this.code >= 330 && this.code <= 369) // string representing hex object IDs
             {
-                if (options != DxfLoaderOptions.None)
+                if (options != DxfLoaderOptions.All)
                 {
                     if (options.HasFlag(DxfLoaderOptions.ChunkValueStringStandardAsZero) && valueString == "standard")
                         return this.ReadHex("0");

@@ -105,10 +105,12 @@ The library will never be able to read some entities like REGIONs, SURFACEs, and
 
 ### LoaderOptions
 
-Added optional DxfLoaderOptions flag to the DxfDocument.Load in order to allow more permissive in load some non compliant dxf file.
-For example the option `ChunkValueStringStandardAsZero` documented as follow:
+Added DxfLoaderOptions flag to the DxfDocument.Load in order to allow more permissive in load some non compliant dxf file.
+By default it enables all permissive flags, you can specify `DxfLoaderOptions.None` in the `DxfDocument.Load` method to disable all flags.
+
+The option `ChunkValueStringStandardAsZero` is documented as follow:
 
 > Loader with chunk value "standard" ( fallback as "0" ).
 > Applies if code in range [330,369].
 
-That mean the parser consider the "standard" as if it was "0" string allowing a reasonable fallback value and continue parsing.
+That mean the parser consider the "standard" as if it was "0" string allowing a reasonable fallback value and continue parsing. Because strict parsing requires numeric (string) values associated to these codes we can consider that compliant documents will not use the available workarounds because not fall in the case matching the case managed by the flag even its enabled because values are already string representing a numeric, while for those documents containing non compliant values the parser translate them to a fallback value in order to allow more permissive parsing.

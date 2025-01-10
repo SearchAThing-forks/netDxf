@@ -522,7 +522,7 @@ namespace netDxf.Blocks
         /// <param name="options">Permissive options.</param>
         /// <returns>The block build from the DXF file content. It will return null if the file has not been able to load.</returns>
         /// <remarks>Only the entities contained in ModelSpace will make part of the block.</remarks>
-        public static Block Load(string file, string name, IEnumerable<string> supportFolders, DxfLoaderOptions options = DxfLoaderOptions.None)
+        public static Block Load(string file, string name, IEnumerable<string> supportFolders, DxfLoaderOptions options = DxfLoaderOptions.All)
         {
 #if DEBUG
             DxfDocument dwg = DxfDocument.Load(file, supportFolders, options);

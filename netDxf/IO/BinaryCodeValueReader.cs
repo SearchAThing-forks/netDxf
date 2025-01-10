@@ -46,7 +46,7 @@ namespace netDxf.IO
 
         #region constructors
 
-        public BinaryCodeValueReader(BinaryReader reader, Encoding encoding, DxfLoaderOptions options = DxfLoaderOptions.None)
+        public BinaryCodeValueReader(BinaryReader reader, Encoding encoding, DxfLoaderOptions options = DxfLoaderOptions.All)
         {
             this.reader = reader;
             this.encoding = encoding;
