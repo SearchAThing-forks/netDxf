@@ -3,7 +3,7 @@
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>netDxf-devel0</PackageId>
-    <PackageVersion>3.4.0-dev-3</PackageVersion>
+    <PackageVersion>3.4.0</PackageVersion>
     <Title>netDxf-devel0</Title>
     <Description></Description>
     <Authors>Lorenzo Delana</Authors>
